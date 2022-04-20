@@ -18,5 +18,5 @@ device=""
         --data $data/ \
         --words 250 \
         --checkpoint $models/model_$1.pt \
-        --outf $samples/sample.txt
+        --outf $samples/sample_$1.txt
 )

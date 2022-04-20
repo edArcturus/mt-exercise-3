@@ -1,10 +1,12 @@
-# MT Exercise 3: Pytorch RNN Language Models
+# MT Exercise 3: Pytorch RNN Language Models: generate Bond-like text
 
-This repo shows how to train neural language models using [Pytorch example code](https://github.com/pytorch/examples/tree/master/word_language_model).
+This repo uses the first four Bond novels by Ian Fleming to train an RNN language model using 
+[Pytorch example code](https://github.com/pytorch/examples/tree/master/word_language_model).
+
 
 # Requirements
 
-- This only works on a Unix-like system, with bash.
+- This only works on a Unix-like system, with bash. (Mac users may have to `brew install coreutils`)
 - Python 3 must be installed on your system, i.e. the command `python3` must be available
 - Make sure virtualenv is installed on your system. To install, e.g.
 
@@ -14,7 +16,7 @@ This repo shows how to train neural language models using [Pytorch example code]
 
 Clone this repository in the desired place:
 
-    git clone https://github.com/emmavdbold/mt-exercise-3
+    TODO: git clone https://github.com/emmavdbold/mt-exercise-3
     cd mt-exercise-3
 
 Create a new virtualenv that uses Python 3. Please make sure to run this command outside of any virtual Python environment:
@@ -29,14 +31,35 @@ Download and install required software:
 
 Download and preprocess data:
 
-    ./scripts/download_data.sh
+    ./scripts/download_bond_data.sh
 
 Train a model:
 
-    ./scripts/train.sh
+- Run any of the scripts `train_1.sh` to `train_5.sh` in the scripts folder to train the model with different 
+dropout rates, e.g.:
+
+    ./scripts/train_1.sh
+
+|Model|Dropout rate|
+|-|-|
+|1|0|
+|2|0.3|
+|3|0.5|
+|4|0.7|
+|5|0.85|
+
+
 
 The training process can be interrupted at any time, and the best checkpoint will always be saved.
 
 Generate (sample) some text from a trained model with:
 
-    ./scripts/generate.sh
+    ./scripts/generate.sh model_number
+
+With `model_number` being a number referring to the model number, e.g.:
+
+    .scripts/generate.sh 3
+
+250 words of generated text will be saved to `sample_n.txt` in the `samples` folder.
+
+

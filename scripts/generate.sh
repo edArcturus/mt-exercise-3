@@ -17,6 +17,6 @@ device=""
     CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python generate.py \
         --data $data/ \
         --words 250 \
-        --checkpoint $models/model.pt \
+        --checkpoint $models/model_$1.pt \
         --outf $samples/sample.txt
 )
